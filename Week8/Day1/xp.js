@@ -40,12 +40,12 @@ for(let x in colors ){
     console.log(`My #${y}${suffix[x]} choise is ${colors[x]}`)
 }
 
-// let res = prompt('Please enter a number');
-// console.log(isNaN(res))
-// while(isNaN(res) == true || Number(res) < 10 ){
-//     res = prompt('Please enter a number');
-// }
-// console.log(res)
+let res = prompt('Please enter a number');
+console.log(isNaN(res))
+while(isNaN(res) == true || Number(res) < 10 ){
+    res = prompt('Please enter a number');
+}
+console.log(res)
 
 const building = {
     numberOfFloors: 4,

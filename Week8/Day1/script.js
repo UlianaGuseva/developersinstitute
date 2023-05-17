@@ -209,7 +209,7 @@ for(let i = 0; i < 5; i++) {
 }
 
 let arr2 = ['a', 'b', 'c', 'd', 'e']
-for(let i = 0; i < arr2/length; i++) { //i=i+2 to scip every 2nd element
+for(let i = 0; i < arr2.length; i++) { //i=i+2 to scip every 2nd element
     console.log(i, arr2[i]);
 }
 

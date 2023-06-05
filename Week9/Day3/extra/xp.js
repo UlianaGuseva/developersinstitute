@@ -78,16 +78,22 @@
 // setTimeout(concurrentStart, 4000)
 
 const urls = [
-    "https://jsonplacehodler.typicode.com/users",
+    "https://jsonplaceholder.typicode.com/users",
     "https://jsonplaceholder.typicode.com/posts",
     "https://jsonplaceholder.typicode.com/albums"
   ];
 const getData = async function() {
 try { 
     const [ users, posts, albums ] = await Promise.all(urls.map(async (url) => {
+      try {
         let result = await fetch(url)
         let result1 = result.json()
-        return result1}
+        return result1
+      }
+      catch(err){
+        console.log('oooooooooooooooops');
+      }
+      }
     ))
     console.log('users', users);
     console.log('posta', posts);
@@ -98,19 +104,19 @@ catch(err){
 }
 getData()
 
-// const urls = [
-//     "https://jsonplaceholder.typicode.com/users",
-//     "https://jsonplaceholder.typicode.com/posts",
-//     "https://jsonplaceholder.typicode.com/albums"
-//   ];
+const urls1 = [
+    "https://jsonplaceholder.typicode.com/users",
+    "https://jsonplaceholder.typicode.com/posts",
+    "https://jsonplaceholder.typicode.com/albums"
+  ];
 
-// const getData = async function() {
-// const [ users, posts, albums ] = await Promise.all(urls.map(url =>
-//   fetch(url).then(resp => resp.json())
-// ));
-// console.log('users', users);
-// console.log('posta', posts);
-// console.log('albums', albums);
-// }
+const getData1 = async function() {
+const [ users, posts, albums ] = await Promise.all(urls1.map(url =>
+  fetch(url).then(resp => resp.json())
+));
+console.log('users', users);
+console.log('posta', posts);
+console.log('albums', albums);
+}
 
-// getData()
+getData1()

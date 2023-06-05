@@ -1,0 +1,95 @@
+{% extends 'base/index.html' %}
+{% load static %}
+{% block style %}
+.icon-container {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    width: 80%;
+    margin: 20px
+  
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+  }
+
+  .icon img {
+    
+    height: 200px;
+    width: 200px;
+  }
+
+  .icon-title {
+    text-decoration: none;
+    font-size: 26px;
+    font-family: 'Comic Sans MS', cursive; 
+  }
+  
+{% endblock %}
+{% block content %}
+<div class="icon-container">
+    <div class="icon">
+      <a href="{%url '1-2years-animals-one' 1%}">
+        <img src="{%static "ch_logo/ch1.png"%}" alt="Icon 1">
+        <div class="icon-title">Animals</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="{% url '1-2years-colors-one' 1%}">
+        <img src="{%static "ch_logo/ch2.png"%}" alt="Icon 2">
+        <div class="icon-title">Colors</div>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="#">
+        <img src="{%static "ch_logo/ch3.png"%}" alt="Icon 3">
+        <div class="icon-title">Shapes</div>
+      </a>
+    </div>
+    <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch4.png"%}" alt="Icon 4">
+          <div class="icon-title">Size and quantity</div>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch5.png"%}" alt="Icon 5">
+          <div class="icon-title">Memory</div>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch6.png"%}" alt="Icon 6">
+          <div class="icon-title">Coloring</div>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch7.png"%}" alt="Icon 7">
+          <div class="icon-title">Match pairs</div>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch8.png"%}" alt="Icon 8">
+          <div class="icon-title">Attention</div>
+        </a>
+      </div>
+      <div class="icon">
+        <a href="#">
+          <img src="{%static "ch_logo/ch9.png"%}" alt="Icon 9">
+          <div class="icon-title">Letters</div>
+        </a>
+      </div>
+</div>
+
+{% endblock %}

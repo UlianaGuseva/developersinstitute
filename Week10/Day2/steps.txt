@@ -1,0 +1,23 @@
+npm init -y (or npm init > press enter everywhere)
+npm instal --save-dev nodemon
+create server.js 
+add "start": "nodemon server.js" in package.json
+npm i express (or npm install express --save )
+create server 
+
+const express = require('express')
+const app = express()
+app.listen(3000, ()=>{console.log('run on port 3000')}) or app.listen(3000)
+
+in terminal >npm start
+
+
+static files
+
+console.log(__dirname) - to see from wich folder we start our server
+
+app.use('/', express.static(public))
+or
+app.use('/', express.static(__dirname +'/public'))
+
+create folder 'public' and file html

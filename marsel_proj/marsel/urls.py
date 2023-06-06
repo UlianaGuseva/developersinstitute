@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chapters.views import age12view, Animals13View, Colors13View
+from chapters.views import age12view, Animals13View, Colors13View, homePageView, Animals13ViewAll, Colors13ViewAll
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('1-2/', age12view, name="1-2years"),
     path('1-2/animals/<int:pk>', Animals13View.as_view(), name="1-2years-animals-one"),
     path('1-2/colors/<int:pk>', Colors13View.as_view(), name="1-2years-colors-one"),
+    path('3-4/', age12view, name="3-4years"),
+    path('5-6/', age12view, name="5-6years"),
+    path('', homePageView, name="home"),
+    path('1-2/animals/', Animals13ViewAll.as_view(), name="all_animals"),
+    path('1-2/colors/', Colors13ViewAll.as_view(), name="all_colors"),
+    
+    
 ]

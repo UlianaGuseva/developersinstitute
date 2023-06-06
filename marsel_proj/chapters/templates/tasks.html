@@ -7,8 +7,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     border: 1px solid red;
-    width: 80vh;
-    height: 80vh;
+    width: 800px;
+    height: 500px;
  
 }
 
@@ -22,9 +22,12 @@
 #main {
     display: flex;
     height: 100vh;
+    width: 100vw;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    {% comment %} position: relative; {% endcomment %}
+    {% comment %} margin-left: 100px; {% endcomment %}
     
 
 }
@@ -109,10 +112,9 @@ button{
         <div class="clr" data-clr="#24d102"></div>
         <div class="clr" data-clr="#fff"></div>
         <button class="clear">clear</button>
-        <button class="save">save</button>
+        {% comment %} <button class="save">save</button> {% endcomment %}
     </div>
     <div class="nextprev">
-        <!-- We will be accessing the data-clr in JavaScript -->
         <a href=""><div class="prev">Previous</div></a>
         <a href=""><div class="next">Next</div></a>
     </div>

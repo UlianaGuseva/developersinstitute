@@ -1,8 +1,14 @@
 const canvas = document.getElementById("canvas")
-canvas.height = document.documentElement.clientHeight||document.body.clientHeight
-canvas.width = document.documentElement.clientWidth||document.body.clientWidth
+// canvas.height = window.screen.height
+// canvas.width = window.screen.width
+// canvas.height = document.documentElement.clientHeight||document.body.clientHeight
+// canvas.width = document.documentElement.clientWidth||document.body.clientWidth
 // canvas.width= window.innerWidth;
 // canvas.height=window.innerHeight;
+
+canvas.height = 500
+canvas.width = 800
+
 let rect = canvas.getBoundingClientRect()
 console.log(rect.top, rect.right, rect.bottom, rect.left);
 console.log(canvas.clientX, canvas.scrollLeft);
@@ -23,16 +29,16 @@ clearBtn.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 })
 // Saving drawing as image
-let saveBtn = document.querySelector(".save")
-saveBtn.addEventListener("click", () => {
-    let data = canvas.toDataURL("imag/png")
-    let a = document.createElement("a")
-    a.href = data
-    // what ever name you specify here
-    // the image will be saved as that name
-    a.download = "sketch.png"
-    a.click()
-})
+// let saveBtn = document.querySelector(".save")
+// saveBtn.addEventListener("click", () => {
+//     let data = canvas.toDataURL("imag/png")
+//     let a = document.createElement("a")
+//     a.href = data
+//     // what ever name you specify here
+//     // the image will be saved as that name
+//     a.download = "sketch.png"
+//     a.click()
+// })
 window.addEventListener("mousedown", (e) => draw = true)
 window.addEventListener("mouseup", (e) => draw = false)
 window.addEventListener("mousemove", (e) => {

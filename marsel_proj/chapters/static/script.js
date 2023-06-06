@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas")
-canvas.height = 700
-canvas.width = 1000
+canvas.height = document.documentElement.clientHeight||document.body.clientHeight
+canvas.width = document.documentElement.clientWidth||document.body.clientWidth
 // canvas.width= window.innerWidth;
 // canvas.height=window.innerHeight;
 let rect = canvas.getBoundingClientRect()

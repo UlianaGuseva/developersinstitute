@@ -1,0 +1,15 @@
+
+<div>
+    <% for (const item of items ){ %>
+        <div>
+            <a href="<%=item.link%>"><%=item.title%> <a> <br>
+                <p><%= item.pubDate%> | <%= item.creator%> | 
+                    <% for(const cat of item.categories ){ %> 
+                        <span><%= cat%> | </span> 
+                    <% } %>
+                </p> 
+                <p><%= item.contentSnippet%></p>
+            
+        </div>
+    <% } %>
+</div>

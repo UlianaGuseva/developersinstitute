@@ -46,43 +46,45 @@ function loginFunc(e){
 async function registerFunc(e){
     e.preventDefault()  
     console.log("test in func");
-    try {
-      let user = {
+    let user = {
       firstname: inputsReg[0].value, 
       lastname: inputsReg[1].value, 
       email: inputsReg[2].value, 
       username: inputsReg[3].value,
       password: inputsReg[4].value
     }
-    console.log("user", user);
-    const res = await fetch('http://127.0.0.1:3030/register',
-    {
-      method : 'POST',
-      body : JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    div.innerText=`OK. Hello ${user.firstname} ${user.lastname}.`
-    }
-    catch (e) {
-      console.log(e);
+    try {
+      console.log("user", user);
+      const res = await fetch('http://127.0.0.1:3030/register',
+      {
+        method : 'POST',
+        body : JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      const result = await res.json()
+      div.innerText=`OK. Hello ${result[0].firstname} ${result[0].lastname} with id = ${result[0].id}.`
+    } catch (e) {
+      console.log("in the catch try");
       div.innerText=` ${user.username} already exist.`
     }
-    
 }
 
 
 
 async function loginFunc(e){
   e.preventDefault()  
+
   console.log("test in func");
   let user = {
     username: inputsLog[0].value,
     password: inputsLog[1].value
   }
-  console.log("user", user);
-  const res = await fetch('http://127.0.0.1:3030/login',
+  
+  try {
+    console.log("user", user);
+    const res = await fetch('http://127.0.0.1:3030/login',
   {
     method : 'POST',
     body : JSON.stringify(user),
@@ -90,4 +92,11 @@ async function loginFunc(e){
       'Content-Type': 'application/json'
     },
   })
+  const result = await res.json()
+  console.log(result);
+  div.innerText=`Hello ${result[0].firstname} ${result[0].lastname}`
+  } catch (e) {
+    div.innerText=`wrong password`
+  }
+  
 }

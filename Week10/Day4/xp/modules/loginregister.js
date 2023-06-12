@@ -14,14 +14,22 @@ const insertLogintoTable = (username, password) => {
     .returning('*')
 }
 
+const updateRegisterTable = (time, username) => {
+    return db('register')
+    .update({last_login:time})
+    .where({username:username})
+    .returning('*')
+}
+
 
 const insertRegister = (username, password, firstname, lastname, email) => {
     console.log("db register");
-    try{ return db('register')
-    .insert({username, password, firstname, lastname, email})
-    .returning('*')
-    }
-   catch (e){
+    try{ 
+        return db('register')
+        .insert({username, password, firstname, lastname, email})
+        .returning('*')
+    } catch (e){
+    console.log("error", e);
     return e
    }
 }
@@ -29,5 +37,6 @@ const insertRegister = (username, password, firstname, lastname, email) => {
 module.exports= {
     insertLogin,
     insertRegister,
-    insertLogintoTable
+    insertLogintoTable,
+    updateRegisterTable
 }

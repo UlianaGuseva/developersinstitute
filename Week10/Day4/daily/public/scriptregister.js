@@ -5,6 +5,8 @@ let btnregister = document.getElementById('btnregister')
 
 let formRegister = document.getElementById('registerform')
 
+let div = document.getElementById('message')
+
 
    function successReg(e) {
     if(e.target.value ==="" || inputsReg[0].value==="" || inputsReg[1].value==="" || inputsReg[2].value==="" || inputsReg[3].value==="" || inputsReg[4].value==="" ) { 
@@ -26,26 +28,27 @@ formRegister.addEventListener('submit', registerFunc)
 async function registerFunc(e){
     e.preventDefault()  
     console.log("test in func");
+    let user = {
+        firstname: inputsReg[0].value, 
+        lastname: inputsReg[1].value, 
+        email: inputsReg[2].value, 
+        username: inputsReg[3].value,
+        password: inputsReg[4].value
+      }
     try {
-      let user = {
-      firstname: inputsReg[0].value, 
-      lastname: inputsReg[1].value, 
-      email: inputsReg[2].value, 
-      username: inputsReg[3].value,
-      password: inputsReg[4].value
-    }
-    console.log("user", user);
-    const res = await fetch('http://127.0.0.1:3000/register',
-    {
-      method : 'POST',
-      body : JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    })
-    
-    }
-    catch (e) {
+      
+      console.log("user", user);
+      const res = await fetch('http://127.0.0.1:3000/register',
+      {
+        method : 'POST',
+        body : JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      const result = await res.json()
+      div.innerText=`${result.message}`
+    } catch (e) {
       console.log(e);
      
     }

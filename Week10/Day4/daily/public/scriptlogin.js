@@ -4,6 +4,8 @@ let btnlogin = document.getElementById('btnlogin')
 
 let formLogin = document.getElementById('loginform')
 
+let div = document.getElementById('message')
+
 
 
 
@@ -41,7 +43,8 @@ async function loginFunc(e){
     username: inputsLog[0].value,
     password: inputsLog[1].value
   }
-  console.log("user", user);
+  try {
+    console.log("user", user);
   const res = await fetch('http://127.0.0.1:3000/login',
   {
     method : 'POST',
@@ -50,4 +53,10 @@ async function loginFunc(e){
       'Content-Type': 'application/json'
     },
   })
+  const result = await res.json()
+      div.innerText=`${result.message}`
+  } catch (e) {
+    console.log();
+  }
+  
 }

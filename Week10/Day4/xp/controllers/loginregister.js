@@ -1,6 +1,7 @@
 const {insertLogin, 
     insertRegister, 
-    insertLogintoTable
+    insertLogintoTable, 
+    updateRegisterTable
 } = require('../modules/loginregister.js')
 const bcrypt = require('bcrypt')
 
@@ -13,6 +14,10 @@ const _insertLogin = async(req, res) => {
         if(data.length === 0) return res.status(404).json({msg:'does not exist'})
         const match = await bcrypt.compare(req.body.password, data[0].password)
         if(!match) return res.status(400).json({msg:"wrong password"})
+        let time = new Date()
+        
+        await updateRegisterTable(time, data[0].username)
+
         insertLogintoTable(data[0].username, data[0].password )
         .then(data => {
             console.log(data)
@@ -42,7 +47,7 @@ const _insertRegister = async (req, res) => {
         res.json(data)
     })
     .catch(err=>{
-        console.log(err);
+        console.log("in error", err);
         res.status(404).json({msg:err.message})
     })
 }

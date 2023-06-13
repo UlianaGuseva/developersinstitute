@@ -29,8 +29,7 @@ class App extends React.Component{
         <div>
       <span>{lang.votes}  {lang.name}   </span>
       <span onClick={() => this.incremCount(lang.name)}>Click here</span>
-      {/* <span> {this.state.languages[0].name}</span>   
-      <button onClick={this.incremCount()}>Vote</button> */}
+      
       </div>)}
         </>
       ) 

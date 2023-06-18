@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 
 const Products =(props)=>{
 useEffect(() => {
@@ -84,6 +85,7 @@ useEffect(() => {
                       }}>
                         <h4>{item.name}</h4>
                         <h4>{item.price}</h4>
+                        <Link to={`/${item.id}`}>Shop Now</Link>
                         </div>  
                     )
                 })

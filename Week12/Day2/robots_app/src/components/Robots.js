@@ -1,21 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from 'react-redux'
-import { searchRobotsFunc } from '../redux/actions'
-
+import { getRobot, getRobotsApi, searchRobotsFunc } from '../redux/actions'
+import {useEffect} from 'react'
 
 const Robots = () => {
     const searchRobots = useSelector(state => state.searchRobots)
+    const listOfRobots = useSelector(state => state.listOfRobots)
     const dispatch = useDispatch()
-
-    // const fetcingData = async() => {
-    //     const data = fetch('https://jsonplaceholder.typicode.com/users')
-    // }
-
-    // componentDidMount() {
-    //     fetch('https://jsonplaceholder.typicode.com/users')
-    //     .then(resp => resp.json())
-    //     .then(users => {searchRobots=users})
-    // }
+    const varName = searchRobots.length === 0 ? listOfRobots : searchRobots
+    useEffect (()=> {
+       dispatch(getRobotsApi())
+    }, [])
 
     return (
             <>
@@ -31,7 +26,10 @@ const Robots = () => {
       <div style={{padding: '100px'}}>
 
         <div className="row row-cols-1 row-cols-md-3 g-4 base_js">
-            {searchRobots.map((item, i)=>{
+           
+            {varName.length === 0
+          ? <p>Loading...</p>
+          : varName.map((item, i)=>{
                 return(
                     
                     <div key={i} className="col">
